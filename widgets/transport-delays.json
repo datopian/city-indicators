@@ -1,31 +1,29 @@
 {
   "widget": {
-    "elementId": "gva",
+    "elementId": "transport-delays",
     "view": {
       "metadata": {},
       "resources": [
-        {"datasetId": "gva", "name": "gva", "transform": []}
+        {
+          "datasetId": "underground-performance",
+          "name": "key-trends",
+          "transform": []
+        }
       ],
       "specType": "vega",
       "spec": {
         "$schema": "https://vega.github.io/schema/vega/v3.json",
-        "width": 228,
+        "width": 225,
         "height": 160,
         "padding": 0,
         "data": [
           {
-            "name": "gva",
+            "name": "key-trends",
             "format": {
               "parse": {
-                "Year": "date"
+                "Month": "date"
               }
-            },
-            "transform": [
-              {
-                "type": "filter",
-                "expr": "datum['Region name'] == 'London'"
-              }
-            ]
+            }
           }
         ],
         "scales": [
@@ -34,18 +32,18 @@
             "type": "utc",
             "range": "width",
             "domain": {
-              "data": "gva",
-              "field": "Year"
+              "data": "key-trends",
+              "field": "Month"
             }
           },
           {
-            "name": "value",
+            "name": "hours",
             "type": "linear",
             "range": "height",
             "zero": false,
             "domain": {
-              "data": "gva",
-              "field": "Value"
+              "data": "key-trends",
+              "field": "Number of Lost Customer Hours"
             }
           }
         ],
@@ -57,30 +55,42 @@
             "format": "%Y",
             "domain": false,
             "ticks": false,
-            "labelPadding": 10
+            "labelPadding": 10,
+            "labelBound": true
           },
           {
             "orient": "right",
-            "scale": "value",
+            "scale": "hours",
             "labelFont": "Lato",
             "format": "s",
-            "grid": true,
             "domain": false,
             "ticks": false,
-            "title": "GBP",
+            "title": "hours",
             "titleFontWeight": "light"
           }
         ],
         "marks": [
           {
             "type": "line",
-            "from": {"data": "gva"},
+            "from": {
+              "data": "key-trends"
+            },
             "encode": {
               "enter": {
-                "x": {"scale": "x", "field": "Year"},
-                "y": {"scale": "value", "field": "Value"},
-                "strokeWidth": {"value": 2},
-                "stroke": {"value": "#A95F6D"}
+                "x": {
+                  "scale": "x",
+                  "field": "Month"
+                },
+                "y": {
+                  "scale": "hours",
+                  "field": "Number of Lost Customer Hours"
+                },
+                "strokeWidth": {
+                  "value": 2
+                },
+                "stroke": {
+                  "value": "#A95F6D"
+                }
               }
             }
           }
@@ -88,5 +98,5 @@
       }
     }
   },
-  "dataset": "https://datahub.io/london/gva"
+  "dataset": "https://datahub.io/london/underground-performance"
 }

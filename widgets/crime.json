@@ -1,0 +1,145 @@
+{
+  "widget": {
+    "elementId": "crime",
+    "view": {
+      "metadata": {},
+      "resources": [
+        {"datasetId": "crime", "name": "recorded-offences", "transform": []}
+      ],
+      "specType": "vega",
+      "spec": {
+        "$schema": "https://vega.github.io/schema/vega/v3.json",
+        "width": 218,
+        "height": 160,
+        "padding": 0,
+        "data": [
+          {
+            "name": "recorded-offences",
+            "format": {
+              "parse": {
+                "Year": "date"
+              }
+            }
+          },
+          {
+            "name": "inner-london",
+            "source": "recorded-offences",
+            "transform": [
+              {
+                "type": "filter",
+                "expr": "datum.Borough == 'Inner London'"
+              }
+            ]
+          },
+          {
+            "name": "outer-london",
+            "source": "recorded-offences",
+            "transform": [
+              {
+                "type": "filter",
+                "expr": "datum.Borough == 'Outer London'"
+              }
+            ]
+          }
+        ],
+        "scales": [
+          {
+            "name": "x",
+            "type": "utc",
+            "range": "width",
+            "domain": {
+              "data": "recorded-offences",
+              "field": "Year"
+            }
+          },
+          {
+            "name": "value",
+            "type": "linear",
+            "range": "height",
+            "zero": false,
+            "domain": {
+              "data": "recorded-offences",
+              "field": "Value"
+            },
+            "domainMax": 600000,
+            "domainMin": 250000
+          }
+        ],
+        "axes": [
+          {
+            "orient": "bottom",
+            "scale": "x",
+            "labelFont": "Lato",
+            "domain": false,
+            "ticks": false,
+            "labelPadding": 10,
+            "labelBound": true
+          },
+          {
+            "orient": "right",
+            "scale": "value",
+            "labelFont": "Lato",
+            "format": "s",
+            "domain": false,
+            "ticks": false,
+            "title": "recorded offences",
+            "titleFontWeight": "light"
+          }
+        ],
+        "marks": [
+          {
+            "type": "line",
+            "from": {"data": "inner-london"},
+            "encode": {
+              "enter": {
+                "x": {"scale": "x", "field": "Year"},
+                "y": {"scale": "value", "field": "Value"},
+                "strokeWidth": {"value": 2},
+                "stroke": {"value": "#A95F6D"}
+              }
+            }
+          },
+          {
+            "type": "line",
+            "from": {"data": "outer-london"},
+            "encode": {
+              "enter": {
+                "x": {"scale": "x", "field": "Year"},
+                "y": {"scale": "value", "field": "Value"},
+                "strokeWidth": {"value": 2},
+                "stroke": {"value": "#ECAFAF"}
+              }
+            }
+          },
+          {
+            "type": "text",
+            "from": {"data": "inner-london"},
+            "encode": {
+              "enter": {
+                "text": {"value": "Inner London"},
+                "y": {"scale": "value", "value": 570000},
+                "fill": {"value": "#A95F6D"},
+                "font": {"value": "Lato"},
+                "fontWeight": {"value": 100}
+              }
+            }
+          },
+          {
+            "type": "text",
+            "from": {"data": "outer-london"},
+            "encode": {
+              "enter": {
+                "text": {"value": "Outer London"},
+                "y": {"scale": "value", "value": 440000},
+                "fill": {"value": "#ECAFAF"},
+                "font": {"value": "Lato"},
+                "fontWeight": {"value": 100}
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "dataset": "https://datahub.io/london/crime"
+}

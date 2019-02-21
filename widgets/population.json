@@ -1,31 +1,25 @@
 {
   "widget": {
-    "elementId": "gva",
+    "elementId": "population",
     "view": {
       "metadata": {},
       "resources": [
-        {"datasetId": "gva", "name": "gva", "transform": []}
+        {"datasetId": "population", "name": "population", "transform": []}
       ],
       "specType": "vega",
       "spec": {
         "$schema": "https://vega.github.io/schema/vega/v3.json",
-        "width": 228,
+        "width": 238,
         "height": 160,
         "padding": 0,
         "data": [
           {
-            "name": "gva",
+            "name": "population",
             "format": {
               "parse": {
                 "Year": "date"
               }
-            },
-            "transform": [
-              {
-                "type": "filter",
-                "expr": "datum['Region name'] == 'London'"
-              }
-            ]
+            }
           }
         ],
         "scales": [
@@ -34,7 +28,7 @@
             "type": "utc",
             "range": "width",
             "domain": {
-              "data": "gva",
+              "data": "population",
               "field": "Year"
             }
           },
@@ -44,7 +38,7 @@
             "range": "height",
             "zero": false,
             "domain": {
-              "data": "gva",
+              "data": "population",
               "field": "Value"
             }
           }
@@ -57,24 +51,24 @@
             "format": "%Y",
             "domain": false,
             "ticks": false,
-            "labelPadding": 10
+            "labelPadding": 10,
+            "labelBound": true
           },
           {
             "orient": "right",
             "scale": "value",
             "labelFont": "Lato",
-            "format": "s",
             "grid": true,
+            "format": "s",
             "domain": false,
             "ticks": false,
-            "title": "GBP",
             "titleFontWeight": "light"
           }
         ],
         "marks": [
           {
             "type": "line",
-            "from": {"data": "gva"},
+            "from": {"data": "population"},
             "encode": {
               "enter": {
                 "x": {"scale": "x", "field": "Year"},
@@ -88,5 +82,5 @@
       }
     }
   },
-  "dataset": "https://datahub.io/london/gva"
+  "dataset": "https://datahub.io/london/population"
 }
