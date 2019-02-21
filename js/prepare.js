@@ -12,7 +12,9 @@ files.forEach(file => {
     const bufferContent = fs.readFileSync('widgets/' + file)
     const data = JSON.parse(bufferContent.toString())
     config.widgets.push(data.widget)
-    config.datasets.push(data.dataset)
+    if (data.dataset) {
+      config.datasets.push(data.dataset)
+    }
   }
 })
 

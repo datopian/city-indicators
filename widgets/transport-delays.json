@@ -65,7 +65,6 @@
             "format": "s",
             "domain": false,
             "ticks": false,
-            "title": "hours",
             "titleFontWeight": "light"
           }
         ],

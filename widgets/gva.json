@@ -67,7 +67,6 @@
             "grid": true,
             "domain": false,
             "ticks": false,
-            "title": "GBP",
             "titleFontWeight": "light"
           }
         ],

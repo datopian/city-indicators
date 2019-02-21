@@ -82,7 +82,6 @@
             "format": "s",
             "domain": false,
             "ticks": false,
-            "title": "recorded offences",
             "titleFontWeight": "light"
           }
         ],

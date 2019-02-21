@@ -70,7 +70,6 @@
             "labelFont": "Lato",
             "domain": false,
             "ticks": false,
-            "title": "millions",
             "titleFontWeight": "light"
           }
         ],

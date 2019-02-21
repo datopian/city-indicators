@@ -372,7 +372,6 @@ var config = {
               "format": "s",
               "domain": false,
               "ticks": false,
-              "title": "recorded offences",
               "titleFontWeight": "light"
             }
           ],
@@ -482,6 +481,28 @@ var config = {
       }
     },
     {
+      "elementId": "economy",
+      "view": {
+        "metadata": {},
+        "resources": [
+          {
+            "datasetId": "unemployment",
+            "name": "unemployment-rate",
+            "transform": []
+          }
+        ],
+        "specType": "figure",
+        "spec": {
+          "title": "Economy",
+          "operation": "show-latest-data",
+          "fieldName": "unemployment_rate",
+          "suffix": "%",
+          "legend": "Recent unemployment rate",
+          "footer": "Data are sourced from the London Datastore."
+        }
+      }
+    },
+    {
       "elementId": "gva",
       "view": {
         "metadata": {},
@@ -553,7 +574,6 @@ var config = {
               "grid": true,
               "domain": false,
               "ticks": false,
-              "title": "GBP",
               "titleFontWeight": "light"
             }
           ],
@@ -943,7 +963,6 @@ var config = {
               "format": "s",
               "domain": false,
               "ticks": false,
-              "title": "hours",
               "titleFontWeight": "light"
             }
           ],
@@ -1047,7 +1066,6 @@ var config = {
               "labelFont": "Lato",
               "domain": false,
               "ticks": false,
-              "title": "millions",
               "titleFontWeight": "light"
             }
           ],
