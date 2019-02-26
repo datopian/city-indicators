@@ -607,6 +607,28 @@ var config = {
       }
     },
     {
+      "elementId": "health-and-safety",
+      "view": {
+        "metadata": {},
+        "resources": [
+          {
+            "datasetId": "air-quality",
+            "name": "monthly-averages",
+            "transform": []
+          }
+        ],
+        "specType": "figure",
+        "spec": {
+          "title": "Health and Safety",
+          "operation": "show-latest-data",
+          "fieldName": "London Mean Background PM2.5 Particulate (ug/m3)",
+          "suffix": "",
+          "legend": "Average roadside PM2.5 Level",
+          "footer": "Data are sourced from the London Datastore."
+        }
+      }
+    },
+    {
       "elementId": "housing",
       "view": {
         "metadata": {},
@@ -795,6 +817,220 @@ var config = {
               }
             }
           ]
+        }
+      }
+    },
+    {
+      "elementId": "life-expectancy",
+      "view": {
+        "metadata": {},
+        "resources": [
+          {
+            "datasetId": "london-life-expectancy",
+            "name": "male-life-expectancy",
+            "transform": []
+          }
+        ],
+        "specType": "vega",
+        "spec": {
+          "$schema": "https://vega.github.io/schema/vega/v3.json",
+          "width": 238,
+          "height": 160,
+          "padding": 0,
+          "data": [
+            {
+              "name": "male-life-expectancy",
+              "format": {
+                "parse": {
+                  "Year": "date"
+                }
+              }
+            },
+            {
+              "name": "london",
+              "source": "male-life-expectancy",
+              "transform": [
+                {
+                  "type": "filter",
+                  "expr": "datum.Local Authority == 'London'"
+                }
+              ]
+            },
+            {
+              "name": "uk",
+              "source": "male-life-expectancy",
+              "transform": [
+                {
+                  "type": "filter",
+                  "expr": "datum.Local Authority == 'UK'"
+                }
+              ]
+            }
+          ],
+          "scales": [
+            {
+              "name": "x",
+              "type": "utc",
+              "range": "width",
+              "domain": {
+                "data": "london",
+                "field": "Year"
+              }
+            },
+            {
+              "name": "value",
+              "type": "linear",
+              "range": "height",
+              "zero": true,
+              "domain": {
+                "data": "london",
+                "field": "Value"
+              },
+              "domainMin": 70,
+              "domainMax": 82
+            }
+          ],
+          "axes": [
+            {
+              "orient": "bottom",
+              "scale": "x",
+              "labelFont": "Lato",
+              "domain": false,
+              "ticks": false,
+              "labelPadding": 10
+            },
+            {
+              "orient": "right",
+              "scale": "value",
+              "labelFont": "Lato",
+              "domain": false,
+              "ticks": false
+            }
+          ],
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "london"
+              },
+              "encode": {
+                "enter": {
+                  "x": {
+                    "scale": "x",
+                    "field": "Year"
+                  },
+                  "y": {
+                    "scale": "value",
+                    "field": "Value"
+                  },
+                  "strokeWidth": {
+                    "value": 2
+                  },
+                  "stroke": {
+                    "value": "#A95F6D"
+                  }
+                }
+              }
+            },
+            {
+              "type": "line",
+              "from": {
+                "data": "uk"
+              },
+              "encode": {
+                "enter": {
+                  "x": {
+                    "scale": "x",
+                    "field": "Year"
+                  },
+                  "y": {
+                    "scale": "value",
+                    "field": "Value"
+                  },
+                  "strokeWidth": {
+                    "value": 2
+                  },
+                  "stroke": {
+                    "value": "#ECAFAF"
+                  }
+                }
+              }
+            },
+            {
+              "type": "text",
+              "from": {
+                "data": "london"
+              },
+              "encode": {
+                "enter": {
+                  "text": {
+                    "value": "London"
+                  },
+                  "y": {
+                    "scale": "value",
+                    "value": 9
+                  },
+                  "fill": {
+                    "value": "#A95F6D"
+                  },
+                  "font": {
+                    "value": "Lato"
+                  },
+                  "fontWeight": {
+                    "value": 100
+                  }
+                }
+              }
+            },
+            {
+              "type": "text",
+              "from": {
+                "data": "uk"
+              },
+              "encode": {
+                "enter": {
+                  "text": {
+                    "value": "UK"
+                  },
+                  "y": {
+                    "scale": "value",
+                    "value": 3
+                  },
+                  "fill": {
+                    "value": "#ECAFAF"
+                  },
+                  "font": {
+                    "value": "Lato"
+                  },
+                  "fontWeight": {
+                    "value": 100
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "elementId": "livability",
+      "view": {
+        "metadata": {},
+        "resources": [
+          {
+            "datasetId": "public-transport",
+            "name": "london-public-transport",
+            "transform": []
+          }
+        ],
+        "specType": "figure",
+        "spec": {
+          "title": "Livability",
+          "operation": "show-latest-data",
+          "fieldName": "Bus journeys (m)",
+          "suffix": " million",
+          "legend": "Transport journeys in December 2018 by bus",
+          "footer": "Data are sourced from the London Datastore."
         }
       }
     },
@@ -1329,6 +1565,7 @@ var config = {
     "https://datahub.io/london/crime",
     "https://datahub.io/london/gva",
     "https://datahub.io/london/home-affordability",
+    "https://datahub.io/london/london-life-expectancy",
     "https://datahub.io/london/population",
     "https://datahub.io/london/underground-performance",
     "https://datahub.io/london/public-transport",

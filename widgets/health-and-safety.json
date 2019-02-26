@@ -1,0 +1,24 @@
+{
+  "widget": {
+    "elementId": "health-and-safety",
+    "view": {
+      "metadata": {},
+      "resources": [
+        {
+          "datasetId": "air-quality",
+          "name": "monthly-averages",
+          "transform": []
+        }
+      ],
+      "specType": "figure",
+      "spec": {
+        "title": "Health and Safety",
+        "operation": "show-latest-data",
+        "fieldName": "London Mean Background PM2.5 Particulate (ug/m3)",
+        "suffix": "",
+        "legend": "Average roadside PM2.5 Level",
+        "footer": "Data are sourced from the London Datastore."
+      }
+    }
+  }
+}

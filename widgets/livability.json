@@ -1,0 +1,24 @@
+{
+  "widget": {
+    "elementId": "livability",
+    "view": {
+      "metadata": {},
+      "resources": [
+        {
+          "datasetId": "public-transport",
+          "name": "london-public-transport",
+          "transform": []
+        }
+      ],
+      "specType": "figure",
+      "spec": {
+        "title": "Livability",
+        "operation": "show-latest-data",
+        "fieldName": "Bus journeys (m)",
+        "suffix": " million",
+        "legend": "Transport journeys in December 2018 by bus",
+        "footer": "Data are sourced from the London Datastore."
+      }
+    }
+  }
+}
