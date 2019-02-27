@@ -829,7 +829,7 @@ var config = {
         "metadata": {},
         "resources": [
           {
-            "datasetId": "london-life-expectancy",
+            "datasetId": "life-expectancy",
             "name": "male-life-expectancy",
             "transform": []
           },
@@ -1061,7 +1061,12 @@ var config = {
         "resources": [
           {
             "datasetId": "population",
-            "name": "population",
+            "name": "london-population-history",
+            "transform": []
+          },
+          {
+            "datasetId": "population",
+            "name": "london-population-projection",
             "transform": []
           }
         ],
@@ -1073,12 +1078,26 @@ var config = {
           "padding": 0,
           "data": [
             {
-              "name": "population",
+              "name": "london-population-history",
               "format": {
                 "parse": {
                   "Year": "date"
                 }
               }
+            },
+            {
+              "name": "london-population-projection",
+              "format": {
+                "parse": {
+                  "Year": "date"
+                }
+              },
+              "transform": [
+                {
+                  "type": "filter",
+                  "expr": "datum['Year'] > 2015"
+                }
+              ]
             }
           ],
           "scales": [
@@ -1087,7 +1106,7 @@ var config = {
               "type": "utc",
               "range": "width",
               "domain": {
-                "data": "population",
+                "data": "london-population-history",
                 "field": "Year"
               }
             },
@@ -1097,7 +1116,7 @@ var config = {
               "range": "height",
               "zero": false,
               "domain": {
-                "data": "population",
+                "data": "london-population-history",
                 "field": "Value"
               }
             }
@@ -1111,7 +1130,8 @@ var config = {
               "domain": false,
               "ticks": false,
               "labelPadding": 10,
-              "labelBound": true
+              "labelBound": true,
+              "labelOverlap": true
             },
             {
               "orient": "right",
@@ -1128,7 +1148,7 @@ var config = {
             {
               "type": "line",
               "from": {
-                "data": "population"
+                "data": "london-population-history"
               },
               "encode": {
                 "enter": {
@@ -1585,7 +1605,7 @@ var config = {
     "https://datahub.io/london/crime",
     "https://datahub.io/london/gva",
     "https://datahub.io/london/home-affordability",
-    "https://datahub.io/london/london-life-expectancy",
+    "https://datahub.io/london/life-expectancy",
     "https://datahub.io/london/population",
     "https://datahub.io/london/underground-performance",
     "https://datahub.io/london/public-transport",

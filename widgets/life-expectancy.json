@@ -5,7 +5,7 @@
       "metadata": {},
       "resources": [
         {
-          "datasetId": "london-life-expectancy",
+          "datasetId": "life-expectancy",
           "name": "male-life-expectancy",
           "transform": []
         },
@@ -208,5 +208,5 @@
       }
     }
   },
-  "dataset": "https://datahub.io/london/london-life-expectancy"
+  "dataset": "https://datahub.io/london/life-expectancy"
 }

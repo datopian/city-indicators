@@ -4,7 +4,8 @@
     "view": {
       "metadata": {},
       "resources": [
-        {"datasetId": "population", "name": "population", "transform": []}
+        {"datasetId": "population", "name": "london-population-history", "transform": []},
+        {"datasetId": "population", "name": "london-population-projection", "transform": []}
       ],
       "specType": "vega",
       "spec": {
@@ -14,12 +15,26 @@
         "padding": 0,
         "data": [
           {
-            "name": "population",
+            "name": "london-population-history",
             "format": {
               "parse": {
                 "Year": "date"
               }
             }
+          },
+          {
+            "name": "london-population-projection",
+            "format": {
+              "parse": {
+                "Year": "date"
+              }
+            },
+            "transform": [
+              {
+                "type": "filter",
+                "expr": "datum['Year'] > 2015"
+              }
+            ]
           }
         ],
         "scales": [
@@ -28,7 +43,7 @@
             "type": "utc",
             "range": "width",
             "domain": {
-              "data": "population",
+              "data": "london-population-history",
               "field": "Year"
             }
           },
@@ -38,7 +53,7 @@
             "range": "height",
             "zero": false,
             "domain": {
-              "data": "population",
+              "data": "london-population-history",
               "field": "Value"
             }
           }
@@ -52,7 +67,8 @@
             "domain": false,
             "ticks": false,
             "labelPadding": 10,
-            "labelBound": true
+            "labelBound": true,
+            "labelOverlap": true
           },
           {
             "orient": "right",
@@ -68,7 +84,7 @@
         "marks": [
           {
             "type": "line",
-            "from": {"data": "population"},
+            "from": {"data": "london-population-history"},
             "encode": {
               "enter": {
                 "x": {"scale": "x", "field": "Year"},
