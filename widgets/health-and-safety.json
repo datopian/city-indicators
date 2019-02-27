@@ -15,8 +15,8 @@
         "title": "Health and Safety",
         "operation": "show-latest-data",
         "fieldName": "London Mean Background PM2.5 Particulate (ug/m3)",
-        "suffix": "ug/m3",
-        "legend": "Recent average roadside PM2.5 Level",
+        "suffix": " ug/m3",
+        "legend": "Recent average roadside PM2.5 level",
         "footer": "Data are sourced from the London Datastore."
       }
     }

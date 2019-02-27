@@ -16,7 +16,7 @@
         "operation": "show-latest-data",
         "fieldName": "Bus journeys (m)",
         "suffix": " million",
-        "legend": "Transport journeys in December 2018 by bus",
+        "legend": "Bus journeys in recent month",
         "footer": "Data are sourced from the London Datastore."
       }
     }

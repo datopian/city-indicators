@@ -58,7 +58,8 @@
             "domain": false,
             "ticks": false,
             "labelPadding": 10,
-            "labelOverlap": true
+            "labelOverlap": true,
+            "labelFontSize": 9
           },
           {
             "orient": "right",
@@ -68,7 +69,8 @@
             "grid": true,
             "domain": false,
             "ticks": false,
-            "titleFontWeight": "light"
+            "titleFontWeight": "light",
+            "labelFontSize": 9
           }
         ],
         "marks": [

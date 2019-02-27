@@ -58,14 +58,16 @@ var config = {
               "ticks": false,
               "labelPadding": 10,
               "labelBound": true,
-              "labelOverlap": true
+              "labelOverlap": true,
+              "labelFontSize": 9
             },
             {
               "orient": "right",
               "scale": "roadside",
               "labelFont": "Lato",
               "domain": false,
-              "ticks": false
+              "ticks": false,
+              "labelFontSize": 9
             }
           ],
           "marks": [
@@ -365,7 +367,8 @@ var config = {
               "ticks": false,
               "labelPadding": 10,
               "labelBound": true,
-              "labelOverlap": true
+              "labelOverlap": true,
+              "labelFontSize": 9
             },
             {
               "orient": "right",
@@ -374,7 +377,8 @@ var config = {
               "format": "s",
               "domain": false,
               "ticks": false,
-              "titleFontWeight": "light"
+              "titleFontWeight": "light",
+              "labelFontSize": 9
             }
           ],
           "marks": [
@@ -567,7 +571,8 @@ var config = {
               "domain": false,
               "ticks": false,
               "labelPadding": 10,
-              "labelOverlap": true
+              "labelOverlap": true,
+              "labelFontSize": 9
             },
             {
               "orient": "right",
@@ -577,7 +582,8 @@ var config = {
               "grid": true,
               "domain": false,
               "ticks": false,
-              "titleFontWeight": "light"
+              "titleFontWeight": "light",
+              "labelFontSize": 9
             }
           ],
           "marks": [
@@ -625,8 +631,8 @@ var config = {
           "title": "Health and Safety",
           "operation": "show-latest-data",
           "fieldName": "London Mean Background PM2.5 Particulate (ug/m3)",
-          "suffix": "ug/m3",
-          "legend": "Recent average roadside PM2.5 Level",
+          "suffix": " ug/m3",
+          "legend": "Recent average roadside PM2.5 level",
           "footer": "Data are sourced from the London Datastore."
         }
       }
@@ -708,14 +714,16 @@ var config = {
               "labelFont": "Lato",
               "domain": false,
               "ticks": false,
-              "labelPadding": 10
+              "labelPadding": 10,
+              "labelFontSize": 9
             },
             {
               "orient": "right",
               "scale": "value",
               "labelFont": "Lato",
               "domain": false,
-              "ticks": false
+              "ticks": false,
+              "labelFontSize": 9
             }
           ],
           "marks": [
@@ -914,14 +922,16 @@ var config = {
               "domain": false,
               "ticks": false,
               "labelPadding": 10,
-              "labelOverlap": true
+              "labelOverlap": true,
+              "labelFontSize": 9
             },
             {
               "orient": "right",
               "scale": "value",
               "labelFont": "Lato",
               "domain": false,
-              "ticks": false
+              "ticks": false,
+              "labelFontSize": 9
             }
           ],
           "marks": [
@@ -1049,7 +1059,7 @@ var config = {
           "operation": "show-latest-data",
           "fieldName": "Bus journeys (m)",
           "suffix": " million",
-          "legend": "Transport journeys in December 2018 by bus",
+          "legend": "Bus journeys in recent month",
           "footer": "Data are sourced from the London Datastore."
         }
       }
@@ -1131,7 +1141,8 @@ var config = {
               "ticks": false,
               "labelPadding": 10,
               "labelBound": true,
-              "labelOverlap": true
+              "labelOverlap": true,
+              "labelFontSize": 9
             },
             {
               "orient": "right",
@@ -1141,7 +1152,8 @@ var config = {
               "format": "s",
               "domain": false,
               "ticks": false,
-              "titleFontWeight": "light"
+              "titleFontWeight": "light",
+              "labelFontSize": 9
             }
           ],
           "marks": [
@@ -1230,7 +1242,8 @@ var config = {
               "domain": false,
               "ticks": false,
               "labelPadding": 10,
-              "labelBound": true
+              "labelBound": true,
+              "labelFontSize": 9
             },
             {
               "orient": "right",
@@ -1239,7 +1252,8 @@ var config = {
               "format": "s",
               "domain": false,
               "ticks": false,
-              "titleFontWeight": "light"
+              "titleFontWeight": "light",
+              "labelFontSize": 9
             }
           ],
           "marks": [
@@ -1335,7 +1349,8 @@ var config = {
               "ticks": false,
               "labelPadding": 10,
               "labelBound": true,
-              "labelOverlap": true
+              "labelOverlap": true,
+              "labelFontSize": 9
             },
             {
               "orient": "right",
@@ -1343,7 +1358,8 @@ var config = {
               "labelFont": "Lato",
               "domain": false,
               "ticks": false,
-              "titleFontWeight": "light"
+              "titleFontWeight": "light",
+              "labelFontSize": 9
             }
           ],
           "marks": [
@@ -1559,7 +1575,8 @@ var config = {
               "domain": false,
               "ticks": false,
               "labelPadding": 10,
-              "labelOverlap": true
+              "labelOverlap": true,
+              "labelFontSize": 9
             },
             {
               "orient": "right",
@@ -1567,7 +1584,8 @@ var config = {
               "labelFont": "Lato",
               "domain": false,
               "ticks": false,
-              "grid": true
+              "grid": true,
+              "labelFontSize": 9
             }
           ],
           "marks": [

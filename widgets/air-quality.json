@@ -53,14 +53,16 @@
             "ticks": false,
             "labelPadding": 10,
             "labelBound": true,
-            "labelOverlap": true
+            "labelOverlap": true,
+            "labelFontSize": 9
           },
           {
             "orient": "right",
             "scale": "roadside",
             "labelFont": "Lato",
             "domain": false,
-            "ticks": false
+            "ticks": false,
+            "labelFontSize": 9
           }
         ],
         "marks": [

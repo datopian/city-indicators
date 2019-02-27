@@ -90,14 +90,16 @@
             "domain": false,
             "ticks": false,
             "labelPadding": 10,
-            "labelOverlap": true
+            "labelOverlap": true,
+            "labelFontSize": 9
           },
           {
             "orient": "right",
             "scale": "value",
             "labelFont": "Lato",
             "domain": false,
-            "ticks": false
+            "ticks": false,
+            "labelFontSize": 9
           }
         ],
         "marks": [
