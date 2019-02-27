@@ -1101,13 +1101,7 @@ var config = {
                 "parse": {
                   "Year": "date"
                 }
-              },
-              "transform": [
-                {
-                  "type": "filter",
-                  "expr": "datum['Year'] > 2015"
-                }
-              ]
+              }
             }
           ],
           "scales": [
@@ -1118,7 +1112,8 @@ var config = {
               "domain": {
                 "data": "london-population-history",
                 "field": "Year"
-              }
+              },
+              "domainMax": 2524608000000
             },
             {
               "name": "value",
@@ -1128,7 +1123,9 @@ var config = {
               "domain": {
                 "data": "london-population-history",
                 "field": "Value"
-              }
+              },
+              "domainMin": 6700000,
+              "domainMax": 11500000
             }
           ],
           "axes": [
@@ -1177,6 +1174,36 @@ var config = {
                   },
                   "stroke": {
                     "value": "#A95F6D"
+                  }
+                }
+              }
+            },
+            {
+              "type": "line",
+              "from": {
+                "data": "london-population-projection"
+              },
+              "encode": {
+                "enter": {
+                  "x": {
+                    "scale": "x",
+                    "field": "Year"
+                  },
+                  "y": {
+                    "scale": "value",
+                    "field": "Value"
+                  },
+                  "strokeWidth": {
+                    "value": 2
+                  },
+                  "stroke": {
+                    "value": "#A95F6D"
+                  },
+                  "strokeDash": {
+                    "value": [
+                      5,
+                      5
+                    ]
                   }
                 }
               }
