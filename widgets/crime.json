@@ -73,7 +73,8 @@
             "domain": false,
             "ticks": false,
             "labelPadding": 10,
-            "labelBound": true
+            "labelBound": true,
+            "labelOverlap": true
           },
           {
             "orient": "right",

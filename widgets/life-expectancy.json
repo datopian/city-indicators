@@ -8,6 +8,11 @@
           "datasetId": "london-life-expectancy",
           "name": "male-life-expectancy",
           "transform": []
+        },
+        {
+          "datasetId": "london-life-expectancy",
+          "name": "female-life-expectancy",
+          "transform": []
         }
       ],
       "specType": "vega",
@@ -26,22 +31,30 @@
             }
           },
           {
-            "name": "london",
+            "name": "female-life-expectancy",
+            "format": {
+              "parse": {
+                "Year": "date"
+              }
+            }
+          },
+          {
+            "name": "male-le-london",
             "source": "male-life-expectancy",
             "transform": [
               {
                 "type": "filter",
-                "expr": "datum.Local Authority == 'London'"
+                "expr": "datum['Local Authority'] == 'London'"
               }
             ]
           },
-		   {
-            "name": "uk",
-            "source": "male-life-expectancy",
+          {
+            "name": "female-le-london",
+            "source": "female-life-expectancy",
             "transform": [
               {
                 "type": "filter",
-                "expr": "datum.Local Authority == 'UK'"
+                "expr": "datum['Local Authority'] == 'London'"
               }
             ]
           }
@@ -52,7 +65,7 @@
             "type": "utc",
             "range": "width",
             "domain": {
-              "data": "london",
+              "data": "male-le-london",
               "field": "Year"
             }
           },
@@ -62,11 +75,11 @@
             "range": "height",
             "zero": true,
             "domain": {
-              "data": "london",
+              "data": "male-le-london",
               "field": "Value"
             },
-            "domainMin": 70,
-            "domainMax": 82
+            "domainMin": 72,
+            "domainMax": 86
           }
         ],
         "axes": [
@@ -76,7 +89,8 @@
             "labelFont": "Lato",
             "domain": false,
             "ticks": false,
-            "labelPadding": 10
+            "labelPadding": 10,
+            "labelOverlap": true
           },
           {
             "orient": "right",
@@ -90,7 +104,7 @@
           {
             "type": "line",
             "from": {
-              "data": "london"
+              "data": "male-le-london"
             },
             "encode": {
               "enter": {
@@ -114,7 +128,7 @@
           {
             "type": "line",
             "from": {
-              "data": "uk"
+              "data": "female-le-london"
             },
             "encode": {
               "enter": {
@@ -138,25 +152,28 @@
           {
             "type": "text",
             "from": {
-              "data": "london"
+              "data": "male-le-london"
             },
             "encode": {
               "enter": {
+                "fill": {
+                  "value": "A95F6D"
+                },
+                "zindex": {
+                  "value": 10
+                },
                 "text": {
-                  "value": "London"
+                  "value": "Male"
                 },
                 "y": {
                   "scale": "value",
-                  "value": 9
-                },
-                "fill": {
-                  "value": "#A95F6D"
+                  "value": 75
                 },
                 "font": {
                   "value": "Lato"
                 },
-                "fontWeight": {
-                  "value": 100
+                "fontSize": {
+                  "value": 9
                 }
               }
             }
@@ -164,16 +181,16 @@
           {
             "type": "text",
             "from": {
-              "data": "uk"
+              "data": "female-le-london"
             },
             "encode": {
               "enter": {
                 "text": {
-                  "value": "UK"
+                  "value": "Female"
                 },
                 "y": {
                   "scale": "value",
-                  "value": 3
+                  "value": 81
                 },
                 "fill": {
                   "value": "#ECAFAF"

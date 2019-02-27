@@ -52,8 +52,8 @@
             "format": "%Y",
             "domain": false,
             "ticks": false,
-            "labelAngle": 30,
-            "labelPadding": 10
+            "labelPadding": 10,
+            "labelOverlap": true
           },
           {
             "orient": "right",
@@ -61,8 +61,7 @@
             "labelFont": "Lato",
             "domain": false,
             "ticks": false,
-            "grid": true,
-            "labelFontSize": 4
+            "grid": true
           }
         ],
         "marks": [

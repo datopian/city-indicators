@@ -57,7 +57,8 @@
             "format": "%Y",
             "domain": false,
             "ticks": false,
-            "labelPadding": 10
+            "labelPadding": 10,
+            "labelOverlap": true
           },
           {
             "orient": "right",

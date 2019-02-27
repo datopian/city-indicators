@@ -57,7 +57,8 @@ var config = {
               "domain": false,
               "ticks": false,
               "labelPadding": 10,
-              "labelBound": true
+              "labelBound": true,
+              "labelOverlap": true
             },
             {
               "orient": "right",
@@ -363,7 +364,8 @@ var config = {
               "domain": false,
               "ticks": false,
               "labelPadding": 10,
-              "labelBound": true
+              "labelBound": true,
+              "labelOverlap": true
             },
             {
               "orient": "right",
@@ -564,7 +566,8 @@ var config = {
               "format": "%Y",
               "domain": false,
               "ticks": false,
-              "labelPadding": 10
+              "labelPadding": 10,
+              "labelOverlap": true
             },
             {
               "orient": "right",
@@ -622,8 +625,8 @@ var config = {
           "title": "Health and Safety",
           "operation": "show-latest-data",
           "fieldName": "London Mean Background PM2.5 Particulate (ug/m3)",
-          "suffix": "",
-          "legend": "Average roadside PM2.5 Level",
+          "suffix": "ug/m3",
+          "legend": "Recent average roadside PM2.5 Level",
           "footer": "Data are sourced from the London Datastore."
         }
       }
@@ -829,6 +832,11 @@ var config = {
             "datasetId": "london-life-expectancy",
             "name": "male-life-expectancy",
             "transform": []
+          },
+          {
+            "datasetId": "london-life-expectancy",
+            "name": "female-life-expectancy",
+            "transform": []
           }
         ],
         "specType": "vega",
@@ -847,22 +855,30 @@ var config = {
               }
             },
             {
-              "name": "london",
+              "name": "female-life-expectancy",
+              "format": {
+                "parse": {
+                  "Year": "date"
+                }
+              }
+            },
+            {
+              "name": "male-le-london",
               "source": "male-life-expectancy",
               "transform": [
                 {
                   "type": "filter",
-                  "expr": "datum.Local Authority == 'London'"
+                  "expr": "datum['Local Authority'] == 'London'"
                 }
               ]
             },
             {
-              "name": "uk",
-              "source": "male-life-expectancy",
+              "name": "female-le-london",
+              "source": "female-life-expectancy",
               "transform": [
                 {
                   "type": "filter",
-                  "expr": "datum.Local Authority == 'UK'"
+                  "expr": "datum['Local Authority'] == 'London'"
                 }
               ]
             }
@@ -873,7 +889,7 @@ var config = {
               "type": "utc",
               "range": "width",
               "domain": {
-                "data": "london",
+                "data": "male-le-london",
                 "field": "Year"
               }
             },
@@ -883,11 +899,11 @@ var config = {
               "range": "height",
               "zero": true,
               "domain": {
-                "data": "london",
+                "data": "male-le-london",
                 "field": "Value"
               },
-              "domainMin": 70,
-              "domainMax": 82
+              "domainMin": 72,
+              "domainMax": 86
             }
           ],
           "axes": [
@@ -897,7 +913,8 @@ var config = {
               "labelFont": "Lato",
               "domain": false,
               "ticks": false,
-              "labelPadding": 10
+              "labelPadding": 10,
+              "labelOverlap": true
             },
             {
               "orient": "right",
@@ -911,7 +928,7 @@ var config = {
             {
               "type": "line",
               "from": {
-                "data": "london"
+                "data": "male-le-london"
               },
               "encode": {
                 "enter": {
@@ -935,7 +952,7 @@ var config = {
             {
               "type": "line",
               "from": {
-                "data": "uk"
+                "data": "female-le-london"
               },
               "encode": {
                 "enter": {
@@ -959,25 +976,28 @@ var config = {
             {
               "type": "text",
               "from": {
-                "data": "london"
+                "data": "male-le-london"
               },
               "encode": {
                 "enter": {
+                  "fill": {
+                    "value": "A95F6D"
+                  },
+                  "zindex": {
+                    "value": 10
+                  },
                   "text": {
-                    "value": "London"
+                    "value": "Male"
                   },
                   "y": {
                     "scale": "value",
-                    "value": 9
-                  },
-                  "fill": {
-                    "value": "#A95F6D"
+                    "value": 75
                   },
                   "font": {
                     "value": "Lato"
                   },
-                  "fontWeight": {
-                    "value": 100
+                  "fontSize": {
+                    "value": 9
                   }
                 }
               }
@@ -985,16 +1005,16 @@ var config = {
             {
               "type": "text",
               "from": {
-                "data": "uk"
+                "data": "female-le-london"
               },
               "encode": {
                 "enter": {
                   "text": {
-                    "value": "UK"
+                    "value": "Female"
                   },
                   "y": {
                     "scale": "value",
-                    "value": 3
+                    "value": 81
                   },
                   "fill": {
                     "value": "#ECAFAF"
@@ -1294,7 +1314,8 @@ var config = {
               "domain": false,
               "ticks": false,
               "labelPadding": 10,
-              "labelBound": true
+              "labelBound": true,
+              "labelOverlap": true
             },
             {
               "orient": "right",
@@ -1517,8 +1538,8 @@ var config = {
               "format": "%Y",
               "domain": false,
               "ticks": false,
-              "labelAngle": 30,
-              "labelPadding": 10
+              "labelPadding": 10,
+              "labelOverlap": true
             },
             {
               "orient": "right",
@@ -1526,8 +1547,7 @@ var config = {
               "labelFont": "Lato",
               "domain": false,
               "ticks": false,
-              "grid": true,
-              "labelFontSize": 4
+              "grid": true
             }
           ],
           "marks": [
