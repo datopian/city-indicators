@@ -489,22 +489,30 @@ var config = {
     {
       "elementId": "economy",
       "view": {
-        "metadata": {},
+        "title": "Economy",
+        "legend": "Recent unemployment rate",
+        "footer": "Data are sourced from the London Datastore.",
         "resources": [
           {
             "datasetId": "unemployment",
             "name": "unemployment-rate",
-            "transform": []
+            "transform": [
+              {
+                "type": "aggregate",
+                "fields": [
+                  "date"
+                ],
+                "operations": [
+                  "argmax"
+                ]
+              }
+            ]
           }
         ],
         "specType": "figure",
         "spec": {
-          "title": "Economy",
-          "operation": "show-latest-data",
           "fieldName": "unemployment_rate",
-          "suffix": "%",
-          "legend": "Recent unemployment rate",
-          "footer": "Data are sourced from the London Datastore."
+          "suffix": "%"
         }
       }
     },
@@ -618,22 +626,30 @@ var config = {
     {
       "elementId": "health-and-safety",
       "view": {
-        "metadata": {},
+        "title": "Health and Safety",
+        "legend": "Recent average roadside PM2.5 level",
+        "footer": "Data are sourced from the London Datastore.",
         "resources": [
           {
             "datasetId": "air-quality",
             "name": "monthly-averages",
-            "transform": []
+            "transform": [
+              {
+                "type": "aggregate",
+                "fields": [
+                  "Month"
+                ],
+                "operations": [
+                  "argmax"
+                ]
+              }
+            ]
           }
         ],
         "specType": "figure",
         "spec": {
-          "title": "Health and Safety",
-          "operation": "show-latest-data",
           "fieldName": "London Mean Background PM2.5 Particulate (ug/m3)",
-          "suffix": " ug/m3",
-          "legend": "Recent average roadside PM2.5 level",
-          "footer": "Data are sourced from the London Datastore."
+          "suffix": " ug/m3"
         }
       }
     },
@@ -1045,22 +1061,30 @@ var config = {
     {
       "elementId": "livability",
       "view": {
-        "metadata": {},
+        "title": "Livability",
+        "legend": "Bus journeys in recent month",
+        "footer": "Data are sourced from the London Datastore.",
         "resources": [
           {
             "datasetId": "public-transport",
             "name": "london-public-transport",
-            "transform": []
+            "transform": [
+              {
+                "type": "aggregate",
+                "fields": [
+                  "Period beginning"
+                ],
+                "operations": [
+                  "argmax"
+                ]
+              }
+            ]
           }
         ],
         "specType": "figure",
         "spec": {
-          "title": "Livability",
-          "operation": "show-latest-data",
           "fieldName": "Bus journeys (m)",
-          "suffix": " million",
-          "legend": "Bus journeys in recent month",
-          "footer": "Data are sourced from the London Datastore."
+          "suffix": " million"
         }
       }
     },

@@ -2,22 +2,26 @@
   "widget": {
     "elementId": "livability",
     "view": {
-      "metadata": {},
+      "title": "Livability",
+      "legend": "Bus journeys in recent month",
+      "footer": "Data are sourced from the London Datastore.",
       "resources": [
         {
           "datasetId": "public-transport",
           "name": "london-public-transport",
-          "transform": []
+          "transform": [
+            {
+              "type": "aggregate",
+              "fields": ["Period beginning"],
+              "operations": ["argmax"]
+            }
+          ]
         }
       ],
       "specType": "figure",
       "spec": {
-        "title": "Livability",
-        "operation": "show-latest-data",
         "fieldName": "Bus journeys (m)",
-        "suffix": " million",
-        "legend": "Bus journeys in recent month",
-        "footer": "Data are sourced from the London Datastore."
+        "suffix": " million"
       }
     }
   }

@@ -2,22 +2,26 @@
   "widget": {
     "elementId": "economy",
     "view": {
-      "metadata": {},
+      "title": "Economy",
+      "legend": "Recent unemployment rate",
+      "footer": "Data are sourced from the London Datastore.",
       "resources": [
         {
           "datasetId": "unemployment",
           "name": "unemployment-rate",
-          "transform": []
+          "transform": [
+            {
+              "type": "aggregate",
+              "fields": ["date"],
+              "operations": ["argmax"]
+            }
+          ]
         }
       ],
       "specType": "figure",
       "spec": {
-        "title": "Economy",
-        "operation": "show-latest-data",
         "fieldName": "unemployment_rate",
-        "suffix": "%",
-        "legend": "Recent unemployment rate",
-        "footer": "Data are sourced from the London Datastore."
+        "suffix": "%"
       }
     }
   }
